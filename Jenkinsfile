@@ -8,13 +8,13 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                sh '''
-                sudo rm -rf /var/www/html/*
-                sudo cp -r * /var/www/html/
-                '''
-            }
+    stage('Deploy') {
+        steps {
+          sh '''
+          sudo mkdir -p /var/www/html
+          sudo cp -r /var/lib/jenkins/workspace/jenkins/* /var/www/html/
+          '''
         }
-    }
-}
+     }
+     }
+}   
